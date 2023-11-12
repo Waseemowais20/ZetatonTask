@@ -16,7 +16,8 @@ class EditTextView extends StatelessWidget {
       this.validator,
       this.paddingRight,
       this.paddingLeft,
-      this.textInputAction})
+      this.textInputAction,
+      this.keyboardType})
       : super(key: key);
   final String hint;
   final String labelText;
@@ -28,6 +29,7 @@ class EditTextView extends StatelessWidget {
   final double? paddingRight;
   final double? paddingLeft;
   final TextInputAction? textInputAction;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,7 @@ class EditTextView extends StatelessWidget {
         obscureText: obscureText,
         controller: controller,
         validator: validator,
+        keyboardType: keyboardType ?? TextInputType.text,
         textInputAction: textInputAction ?? TextInputAction.next,
         autovalidateMode:
             autoValidateMode ?? AutovalidateMode.onUserInteraction,

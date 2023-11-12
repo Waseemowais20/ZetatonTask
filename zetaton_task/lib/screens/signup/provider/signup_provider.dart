@@ -67,7 +67,7 @@ class SignUpProvider extends ChangeNotifier {
             errorMessage = "Email already used. Go to login page.";
             break;
           default:
-            errorMessage = "Login failed. Please try again.";
+            errorMessage = "Signup failed. Please try again.";
             break;
         }
         _setSignInLoading(false);

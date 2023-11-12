@@ -108,6 +108,7 @@ class SignupForm extends StatelessWidget {
           hint: 'Phone number',
           labelText: 'Phone number',
           controller: phone,
+          keyboardType: TextInputType.number,
           obscureText: false,
           validator: (value) {
             if (value!.isEmpty) {
