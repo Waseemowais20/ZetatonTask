@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:zetaton_task/constants/colors.dart';
 import 'package:zetaton_task/constants/strings.dart';
+import 'package:zetaton_task/screens/home/provider/download_image.dart';
 import 'package:zetaton_task/screens/home/provider/home_provider.dart';
 import 'package:zetaton_task/screens/home/provider/logout_provider.dart';
 import 'package:zetaton_task/screens/home/view/components/custom_search_dialog.dart';
@@ -9,6 +10,28 @@ import 'package:zetaton_task/screens/home/view/components/logout_bottom_sheet.da
 import 'package:zetaton_task/screens/home/view/components/picture_list.dart';
 import 'package:zetaton_task/utilites/widgets/appBar_custom.dart';
 import 'package:zetaton_task/utilites/methods/shared_methods.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<DownloadImage>(
+            create: (context) => DownloadImage()),
+        ChangeNotifierProvider<LogoutProvider>(
+            create: (context) => LogoutProvider()),
+      ],
+      child: HomePage(),
+    );
+  }
+}
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

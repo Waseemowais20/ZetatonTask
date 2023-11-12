@@ -22,12 +22,9 @@ class _AppNavBarPageState extends State<AppNavBarPage> {
       providers: [
         ChangeNotifierProvider<HomeProvider>(
             create: (context) => HomeProvider()),
-        ChangeNotifierProvider<DownloadImage>(
-            create: (context) => DownloadImage()),
         ChangeNotifierProvider<FavoritesProvider>(
             create: (context) => FavoritesProvider()),
-        ChangeNotifierProvider<LogoutProvider>(
-            create: (context) => LogoutProvider()),
+
       ],
       child: const AppNavigationBar(),
     );
@@ -60,8 +57,8 @@ class _AppNavigationBarState extends State<AppNavigationBar> {
     super.initState();
     requestStoragePermission();
     _pages = <Widget>[
-      const HomePage(),
-      const FavoritesScreen(),
+      const HomeScreen(),
+      const FavoritesPage(),
     ];
   }
 
