@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'package:zetaton_task/screens/home/provider/logout_provider.dart';
 import 'package:zetaton_task/screens/home/view/navigation_bar.dart';
+import 'package:zetaton_task/screens/login/provider/login_provider.dart';
 import 'package:zetaton_task/screens/login/view/login_screen.dart';
-import 'package:zetaton_task/utilites/controller/app_multi_provider.dart';
 import 'package:zetaton_task/utilites/session_manager.dart';
 import 'package:zetaton_task/utilites/methods/navigation_service.dart';
 
@@ -15,7 +17,7 @@ void main() async {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-      child: const AppMultiProvider(child: MyApp())));
+      child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -52,8 +54,8 @@ class _SplashScreenState extends State<SplashScreen> {
       String? authToken = await sm.getAuthToken();
 
       final Widget screen = authToken == null
-          ? LoginScreen()
-          : const AppMultiProvider(child: AppNavigationBar());
+          ? LoginPage()
+          : AppNavBarPage();
       if (context.mounted) {
         navigationService.navigator(context, screen);
       }

@@ -120,23 +120,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                 Navigator.of(context).push(
                                                     MaterialPageRoute(
                                                         builder: (context) {
-                                                  return MultiProvider(
-                                                    providers: [
-                                                      ChangeNotifierProvider<
-                                                              HomeProvider>(
-                                                          create: (context) =>
-                                                              HomeProvider()),
-                                                      ChangeNotifierProvider<
-                                                              FavoritesProvider>(
-                                                          create: (context) =>
-                                                              FavoritesProvider()),
-                                                      ChangeNotifierProvider<
-                                                              DownloadImage>(
-                                                          create: (context) =>
-                                                              DownloadImage()),
-                                                    ],
-                                                    child: AppNavigationBar(),
-                                                  );
+                                                  return AppNavBarPage();
                                                 }));
 
                                                 CustomToast.show(context,

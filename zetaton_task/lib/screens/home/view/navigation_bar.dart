@@ -1,7 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:zetaton_task/screens/favorites/provider/favorites_provider.dart';
 import 'package:zetaton_task/screens/favorites/view/favorites_screen.dart';
+import 'package:zetaton_task/screens/home/provider/download_image.dart';
+import 'package:zetaton_task/screens/home/provider/home_provider.dart';
+import 'package:zetaton_task/screens/home/provider/logout_provider.dart';
 import 'package:zetaton_task/screens/home/view/home_screen.dart';
 import 'package:zetaton_task/utilites/methods/permission_request.dart';
+
+class AppNavBarPage extends StatefulWidget {
+  const AppNavBarPage({Key? key}) : super(key: key);
+
+  @override
+  State<AppNavBarPage> createState() => _AppNavBarPageState();
+}
+
+class _AppNavBarPageState extends State<AppNavBarPage> {
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<HomeProvider>(
+            create: (context) => HomeProvider()),
+        ChangeNotifierProvider<DownloadImage>(
+            create: (context) => DownloadImage()),
+        ChangeNotifierProvider<FavoritesProvider>(
+            create: (context) => FavoritesProvider()),
+        ChangeNotifierProvider<LogoutProvider>(
+            create: (context) => LogoutProvider()),
+      ],
+      child: const AppNavigationBar(),
+    );
+  }
+}
 
 class AppNavigationBar extends StatefulWidget {
   const AppNavigationBar({Key? key}) : super(key: key);

@@ -16,6 +16,26 @@ import 'package:zetaton_task/utilites/widgets/custom_toast.dart';
 import 'package:zetaton_task/utilites/methods/shared_methods.dart';
 import 'package:zetaton_task/utilites/widgets/shared_widgets.dart';
 
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<LoginProvider>(
+            create: (context) => LoginProvider()),
+      ],
+      child: LoginScreen(),
+    );
+  }
+}
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -74,23 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
                                                   builder: (context) {
-                                            return MultiProvider(
-                                              providers: [
-                                                ChangeNotifierProvider<
-                                                        HomeProvider>(
-                                                    create: (context) =>
-                                                        HomeProvider()),
-                                                ChangeNotifierProvider<
-                                                        DownloadImage>(
-                                                    create: (context) =>
-                                                        DownloadImage()),
-                                                ChangeNotifierProvider<
-                                                        FavoritesProvider>(
-                                                    create: (context) =>
-                                                        FavoritesProvider()),
-                                              ],
-                                              child: AppNavigationBar(),
-                                            );
+                                            return AppNavBarPage();
                                           }));
 
                                           CustomToast.show(

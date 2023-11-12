@@ -69,7 +69,7 @@ class LogoutBottomSheet {
                               if (result == 'LogOut') {
                                 if (context.mounted) {
                                   navigationService.navigator(
-                                      context, const LoginScreen());
+                                      context, const LoginPage());
                                 }
                               } else {
                                 print('Logout error');
