@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "497322845305",
+    "project_id": "zetatontask-a58f2",
+    "storage_bucket": "zetatontask-a58f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497322845305:android:7ca6a5fe6df71b1974e0a8",
+        "android_client_info": {
+          "package_name": "com.example.zetaton_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8BEdPUovGk8ZiG_qozuihfyoaR0hBYlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
